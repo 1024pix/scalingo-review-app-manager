@@ -1,0 +1,9 @@
+.idea
+*.iml
+*.log
+*.tmp
+*.env
+node_modules
+dist
+tmp
+
