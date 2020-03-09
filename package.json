@@ -1,13 +1,13 @@
 {
   "name": "scalingo-review-app-manager",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Utility tool that helps managing Scalingo review apps the economic way",
   "license": "AGPL-3.0",
   "author": "Jérémy Buget",
   "homepage": "https://github.com/1024pix/scalingo-review-app-manager",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/1024pix/scalingo-review-app-manager.git"
+    "type": "git",
+    "url": "https://github.com/1024pix/scalingo-review-app-manager.git"
   },
   "main": "index.js",
   "scripts": {
