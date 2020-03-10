@@ -1,5 +1,7 @@
 # Scalingo Review App Manager
 
+Small and lightweight utility that automatically stop & restart your review apps on Scalingo each day.
+
 ## Basic Usage
 
 **1/** Install the dependency.
