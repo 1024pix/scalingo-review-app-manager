@@ -1,6 +1,6 @@
 # Scalingo Review App Manager
 
-## Usage
+## Basic Usage
 
 **1/** Install the dependency.
 
@@ -16,4 +16,33 @@ const ReviewAppManager = require('../index').ReviewAppManager;
 const reviewAppManager = new ReviewAppManager('tk-us-DkjGg...', 'https://api.osc-fr1.scalingo.com');
 
 reviewAppManager.startEcoMode().then(() => console.log('Eco Mode enabled.'));
+```
+
+## Advanced usage
+
+### Custom stop & restart times
+
+By default review apps will be shut down every week day at 7pm and will be restarted the day after (if it is a week day) at 8am.
+
+You can customize the stop and restart times by passing `stopCronTime` and/or `restartCronTime` parameters (RegExp strings) to the ReviewAppManager constructor.
+
+```javascript
+const options = {
+  stopCronTime: '0 0 22 * * 1-5',
+  restartCronTime: '0 0 6 * * 1-5'
+};
+(new ReviewAppManager(scalingoToken, scalingoApiUrl, options)).startEcoMode();
+```
+
+### Ignoring some review apps
+
+By default, all the review apps will be stopped and restarted according to stop & restart times.
+
+You can ignore some review apps by passing `ignoredReviewApps` parameter (array of strings) to the ReviewAppManager constructor.
+
+```javascript
+const options = {
+  ignoredReviewApps: ['my-app-review-pr1', 'my-app-review-pr3']
+};
+(new ReviewAppManager(scalingoToken, scalingoApiUrl, options)).startEcoMode();
 ```
