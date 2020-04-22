@@ -48,3 +48,20 @@ const options = {
 };
 (new ReviewAppManager(scalingoToken, scalingoApiUrl, options)).startEcoMode();
 ```
+
+### Status Poll 
+
+The Scalingo API limits the numbers of applications scaling in the same time. 
+
+To deal with this limit, a mechanism of polling by application scaling is set up.
+
+By default, the scaling status of each application is checked every 1000ms with a maximum of 10 attempts. 
+These values can be parameterized in the options object of the `ReviewAppManager` constructor : `pollTimeInterval` (number, in ms) and `pollMaxAttempts` (number).
+
+```javascript
+const options = {
+  pollTimeInterval: 1000,
+  pollMaxAttempts: 10
+};
+(new ReviewAppManager(scalingoToken, scalingoApiUrl, options)).startEcoMode();
+```
