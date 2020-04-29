@@ -9,8 +9,15 @@ async function main() {
   const stopCronTime = process.env.STOP_CRON_TIME;
   const restartCronTime = process.env.RESTART_CRON_TIME;
   const ignoredReviewApps = process.env.IGNORED_REVIEW_APPS.split(',');
+  const timeZone = process.env.TIME_ZONE;
 
-  const reviewAppManager = new ReviewAppManager(scalingoToken, scalingoApiUrl, { stopCronTime, restartCronTime, ignoredReviewApps });
+  const reviewAppManager = new ReviewAppManager(scalingoToken, scalingoApiUrl, {
+    stopCronTime,
+    restartCronTime,
+    ignoredReviewApps,
+    timeZone
+  });
+
   return reviewAppManager.startEcoMode();
 }
 

@@ -49,7 +49,7 @@ const options = {
 (new ReviewAppManager(scalingoToken, scalingoApiUrl, options)).startEcoMode();
 ```
 
-### Status Poll 
+### Scalingo pending operations limit management
 
 The Scalingo API limits the numbers of applications scaling in the same time. 
 
@@ -62,6 +62,19 @@ These values can be parameterized in the options object of the `ReviewAppManager
 const options = {
   pollTimeInterval: 1000,
   pollMaxAttempts: 10
+};
+(new ReviewAppManager(scalingoToken, scalingoApiUrl, options)).startEcoMode();
+```
+
+### Specifying cron jobs time zone
+
+By default, the cron jobs are based on UTC server's local time zone.
+
+You can set up a specific time zone with the `timeZone` option, cf. [the list of available time zones](https://github.com/eggert/tz/blob/c7cc14a846e1dcaa2800f3f0070a12fd514f608c/zone.tab).
+
+```javascript
+const options = {
+  timeZone: 'Europe/Paris',
 };
 (new ReviewAppManager(scalingoToken, scalingoApiUrl, options)).startEcoMode();
 ```
