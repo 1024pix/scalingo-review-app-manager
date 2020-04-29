@@ -65,3 +65,9 @@ const options = {
 };
 (new ReviewAppManager(scalingoToken, scalingoApiUrl, options)).startEcoMode();
 ```
+
+## License
+
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+
+This software is released under the [AGPL-3.0](https://www.gnu.org/licenses/why-affero-gpl.en.html) license & supports modern environments.
