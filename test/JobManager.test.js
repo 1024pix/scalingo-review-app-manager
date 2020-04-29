@@ -15,14 +15,16 @@ describe('JobManager', () => {
       const reviewAppClient = { stubbed: 'reviewAppClient' };
       const stopCronTime = '0 30 20 * * 1-5';
       const restartCronTime = '0 30 7 * * 1-5';
+      const timeZone = 'Europe/Paris';
 
       // when
-      const jobManager = new JobManager(reviewAppClient, { stopCronTime, restartCronTime });
+      const jobManager = new JobManager(reviewAppClient, { stopCronTime, restartCronTime, timeZone });
 
       // then
       expect(jobManager._reviewAppClient).to.deep.equal(reviewAppClient);
       expect(jobManager._stopCronTime).to.deep.equal(stopCronTime);
       expect(jobManager._restartCronTime).to.deep.equal(restartCronTime);
+      expect(jobManager._timeZone).to.deep.equal(timeZone);
     });
 
     it('should manage a cron job to stop review apps', () => {
