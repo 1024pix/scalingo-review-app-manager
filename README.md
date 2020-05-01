@@ -1,4 +1,4 @@
-# Scalingo Review App Manager
+# ![Logo](/docs/logo_64.png) Scalingo Review App Manager
 
 Small and lightweight utility that automatically stop & restart your review apps on Scalingo each day.
 
@@ -84,3 +84,7 @@ const options = {
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 
 This software is released under the [AGPL-3.0](https://www.gnu.org/licenses/why-affero-gpl.en.html) license & supports modern environments.
+
+## Misc
+
+The logo was in free downloaded on [pngdownload.id](https://www.pngdownload.id/png-4wxqo5/download.html) after a search on Google Images with "non-commercial reuse" filter.
