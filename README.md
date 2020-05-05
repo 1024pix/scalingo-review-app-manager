@@ -1,6 +1,43 @@
-# Scalingo Review App Manager
+# ![Logo](/docs/logo_64.png) Scalingo Review App Manager
 
-Small and lightweight utility that automatically stop & restart your review apps on Scalingo each day.
+Small and lightweight utility that automatically stop & restart your review apps on Scalingo each working day.
+
+## Presentation
+
+### Who
+
+This library may interest you if you : 
+- host your infrastructure on [Scalingo platform](https://scalingo.com)
+- use the mechanism of [Review Apps (a.k.a. RA)](https://doc.scalingo.com/platform/app/review-apps)
+- are used to have multiple RA (at least 2) opened for more than a day   
+
+In particular, you will be concerned if you have enabled the option to "create review app for each new Pull Request".
+
+### Why
+
+The firt goal of this library is to help you saving (a little bit of) money.
+ 
+Another goal we have in mind is to reduce our consumption of useless IT resources.
+
+> We know that Scalingo must reserved physical servers in all cases and that the economy of resource consumption is insignificant at the scale ot the planet, but we believe that "a little bit" is even better than "not at all" 😉.
+
+### How
+
+In order to use `scalingo-review-app-manager` :
+1. add the library as a dependency in a Scalingo Node.js project
+2. in your application code, declare a new `ReviewAppManager`
+3. add an instruction to start the `EcoMode`
+4. push & deploy your project on Scalingo
+
+### What
+
+You can find a real production example [here](https://github.com/1024pix/pix-bot). 
+
+Pix Bot is a little web application hosted on Scalingo that help us – [Pix](https://github.com/1024pix/) – to automate internal processes and manage critical operations.
+
+In particular, Pix Bot is responsible to manage all of our Review Apps (about 60 S-sized opened by day).
+
+Thanks to `scalingo-review-app-manager`, **we estimate that we save between 3500$ and 5000$ a year**. 
 
 ## Basic Usage
 
@@ -84,3 +121,7 @@ const options = {
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 
 This software is released under the [AGPL-3.0](https://www.gnu.org/licenses/why-affero-gpl.en.html) license & supports modern environments.
+
+## Misc
+
+The logo was in free downloaded on [pngdownload.id](https://www.pngdownload.id/png-4wxqo5/download.html) after a search on Google Images with "non-commercial reuse" filter.
