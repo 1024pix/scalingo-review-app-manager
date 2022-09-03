@@ -20,16 +20,16 @@
     "greenit"
   ],
   "dependencies": {
-    "cron": "^1.8.2",
-    "scalingo": "^0.3.1"
+    "cron": "^2.1.0",
+    "scalingo": "^0.7.0"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
+    "chai": "^4.3.6",
     "chai-as-promised": "^7.1.1",
-    "mocha": "^7.1.2",
-    "nock": "^12.0.3",
-    "nyc": "^15.0.1",
-    "sinon": "^9.0.2",
-    "sinon-chai": "^3.5.0"
+    "mocha": "^10.0.0",
+    "nock": "^13.2.9",
+    "nyc": "^15.1.0",
+    "sinon": "^14.0.0",
+    "sinon-chai": "^3.7.0"
   }
 }
