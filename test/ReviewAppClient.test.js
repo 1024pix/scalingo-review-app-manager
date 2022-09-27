@@ -79,6 +79,23 @@ describe('ReviewAppClient', () => {
       scope.isDone();
     });
 
+    it('should resolve when the scaling doesn\'t return an operation', async () => {
+      // given
+      const scope = nock(scalingoApiUrl)
+        .post(`/v1/apps/${app.name}/scale`)
+        .reply(202);
+
+      const reviewAppClient = new ReviewAppClient(scalingoToken, scalingoApiUrl, {
+        pollTimeInterval: 10
+      });
+
+      // when
+      await reviewAppClient.scale(app, formation);
+
+      // then
+      scope.isDone();
+    });
+
     it('should resolve even when a scaling operation is marked as `error`', () => {
       // given
       const scope = nock(scalingoApiUrl)
