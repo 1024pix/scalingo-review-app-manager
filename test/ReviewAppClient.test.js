@@ -1,4 +1,4 @@
-const { expect, nock } = require('./testing');
+const { expect, nock, catchErr } = require('./testing');
 const ReviewAppClient = require('../lib/ReviewAppClient');
 
 describe('ReviewAppClient', () => {
@@ -144,6 +144,52 @@ describe('ReviewAppClient', () => {
       await reviewAppClient.scale(app, formation);
 
       // then
+      scope.isDone();
+    });
+
+    it('should ignore error when the scaling dont change anything', async () => {
+      // given
+      const scope = nock(scalingoApiUrl)
+        .post(`/v1/apps/${app.name}/scale`)
+        .reply(422, { error: 'no change in containers formation' });
+
+      const reviewAppClient = new ReviewAppClient(scalingoToken, scalingoApiUrl);
+
+      // when
+      await reviewAppClient.scale(app, formation);
+
+      // then
+      scope.isDone();
+    });
+
+    it('should ignore 422 error', async () => {
+      // given
+      const scope = nock(scalingoApiUrl)
+        .post(`/v1/apps/${app.name}/scale`)
+        .reply(422, { errors: { app: [ 'is booting' ] } });
+
+      const reviewAppClient = new ReviewAppClient(scalingoToken, scalingoApiUrl);
+
+      // when
+      await reviewAppClient.scale(app, formation);
+
+      // then
+      scope.isDone();
+    });
+
+    it('should throw error', async () => {
+      // given
+      const scope = nock(scalingoApiUrl)
+        .post(`/v1/apps/${app.name}/scale`)
+        .reply(404, { error: 'oskour' });
+
+      const reviewAppClient = new ReviewAppClient(scalingoToken, scalingoApiUrl);
+
+      // when
+      const err = await catchErr(() => reviewAppClient.scale(app, formation), reviewAppClient)();
+
+      // then
+      expect(err).to.be.an('error');
       scope.isDone();
     });
   });
