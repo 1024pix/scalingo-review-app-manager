@@ -151,7 +151,7 @@ describe('ReviewAppClient', () => {
       // given
       const scope = nock(scalingoApiUrl)
         .post(`/v1/apps/${app.name}/scale`)
-        .reply(422, { error: 'no change in containers formation' });
+        .reply(400, { error: 'no change in containers formation' });
 
       const reviewAppClient = new ReviewAppClient(scalingoToken, scalingoApiUrl);
 
