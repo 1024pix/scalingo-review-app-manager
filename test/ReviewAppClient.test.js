@@ -1,5 +1,6 @@
-const { expect, nock, catchErr } = require('./testing');
+const { expect, nock, catchErr, sinon } = require('./testing');
 const ReviewAppClient = require('../lib/ReviewAppClient');
+const logger = require('../lib/logger');
 
 describe('ReviewAppClient', () => {
 
@@ -16,6 +17,7 @@ describe('ReviewAppClient', () => {
 
   afterEach(() => {
     nock.cleanAll();
+    sinon.restore();
   });
 
   describe('#scale()', () => {
@@ -96,8 +98,9 @@ describe('ReviewAppClient', () => {
       scope.isDone();
     });
 
-    it('should resolve even when a scaling operation is marked as `error`', () => {
+    it('should resolve even when a scaling operation is marked as `error`', async () => {
       // given
+      const loggerErrorStub = sinon.stub(logger, 'error');
       const scope = nock(scalingoApiUrl)
         .post(`/v1/apps/${app.name}/scale`)
         .reply(202, {}, {
@@ -114,14 +117,20 @@ describe('ReviewAppClient', () => {
       const reviewAppClient = new ReviewAppClient(scalingoToken, scalingoApiUrl);
 
       // when
-      const promise = reviewAppClient.scale(app, formation);
+      await reviewAppClient.scale(app, formation);
 
       // then
-      return expect(promise).to.be.fulfilled;
+      expect(loggerErrorStub.calledOnce).to.be.true;
+      expect(loggerErrorStub.firstCall.args[0]).to.deep.equal({
+        "event":"review-app",
+        "message":"container web-1 failed to scale"
+      });
+      scope.isDone();
     });
 
     it('should check the scaling operation status up to X times before logging an error', async () => {
       // given
+      const loggerErrorStub = sinon.stub(logger, 'error');
       const scope = nock(scalingoApiUrl)
         .post(`/v1/apps/${app.name}/scale`)
         .reply(202, {}, {
@@ -145,6 +154,11 @@ describe('ReviewAppClient', () => {
 
       // then
       scope.isDone();
+      expect(loggerErrorStub.calledOnce).to.be.true;
+      expect(loggerErrorStub.firstCall.args[0]).to.deep.equal({
+        "event":"review-app",
+        "message":"Exceeded max attempts"
+      });
     });
 
     it('should ignore error when the scaling dont change anything', async () => {
