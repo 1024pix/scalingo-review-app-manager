@@ -1,14 +1,18 @@
 const { expect, sinon } = require('./testing');
 const Job = require('../lib/Job');
 const JobManager = require('../lib/JobManager');
+const logger = require('../lib/Logger');
+
 
 describe('JobManager', () => {
+
+  afterEach(() => {
+    sinon.restore();
+  });
 
   describe('#constructor', () => {
 
     const reviewAppClient = { stubbed: 'reviewAppClient' };
-    const stopCronTime = '0 30 20 * * 1-5';
-    const restartCronTime = '0 30 7 * * 1-5';
 
     it('should keep an internal reference on given parameters', () => {
       // given
@@ -58,6 +62,7 @@ describe('JobManager', () => {
 
     it('should start each job manager’s tasks', () => {
       // given
+      const loggerInfoStub = sinon.stub(logger, 'info');
       const stubJob1 = new StubJob('stub-job-1');
       const stubJob2 = new StubJob('stub-job-2');
 
@@ -70,6 +75,48 @@ describe('JobManager', () => {
       // then
       expect(stubJob1.start).to.have.been.calledOnce;
       expect(stubJob2.start).to.have.been.calledOnce;
+      expect(loggerInfoStub.calledTwice).to.be.true;
+      expect(loggerInfoStub.firstCall.args[0]).to.deep.equal({
+        "event":"review-app-manager",
+        "job": 'stub-job-1',
+        "message": 'Started job stub-job-1 with cron time "0 0 19 * * 1,2,3,4,5"'
+      });
+      expect(loggerInfoStub.secondCall.args[0]).to.deep.equal({
+        "event":"review-app-manager",
+        "job": 'stub-job-2',
+        "message": 'Started job stub-job-2 with cron time "0 0 19 * * 1,2,3,4,5"'
+      });
+    });
+
+    it('should log error if job method start() raise an error', () => {
+      // given
+      const loggerInfoStub = sinon.stub(logger, 'info');
+      const loggerErrorStub = sinon.stub(logger, 'error');
+      const stubJob1 = new StubJob('stub-job-1');
+      const stubJob2 = new StubJob('stub-job-2');
+      const job2Error = new Error('Houston, we have a problem');
+      stubJob2.start.throws(job2Error);
+
+      const jobManager = new JobManager({});
+      jobManager._jobs = [stubJob1, stubJob2];
+      // when
+      jobManager.startJobs();
+
+      // then
+      expect(stubJob1.start).to.have.been.calledOnce;
+      expect(stubJob2.start).to.have.been.calledOnce;
+      expect(loggerInfoStub.calledOnce).to.be.true;
+      expect(loggerInfoStub.firstCall.args[0]).to.deep.equal({
+        "event":"review-app-manager",
+        "job": 'stub-job-1',
+        "message": 'Started job stub-job-1 with cron time "0 0 19 * * 1,2,3,4,5"',
+      });
+      expect(loggerErrorStub.calledOnce).to.be.true;
+      expect(loggerErrorStub.firstCall.args[0]).to.deep.equal({
+        "event":"review-app-manager",
+        "job": 'stub-job-2',
+        "message": job2Error,
+      });
     });
   });
 
@@ -84,6 +131,7 @@ describe('JobManager', () => {
 
     it('should stop each job manager’s tasks', () => {
       // given
+      const loggerInfoStub = sinon.stub(logger, 'info');
       const stubJob1 = new StubJob('stub-job-1');
       const stubJob2 = new StubJob('stub-job-2');
 
@@ -96,6 +144,17 @@ describe('JobManager', () => {
       // then
       expect(stubJob1.stop).to.have.been.calledOnce;
       expect(stubJob2.stop).to.have.been.calledOnce;
+      expect(loggerInfoStub.calledTwice).to.be.true;
+      expect(loggerInfoStub.firstCall.args[0]).to.deep.equal({
+        "event":"review-app-manager",
+        "job": 'stub-job-1',
+        "message": 'Stopped job stub-job-1'
+      });
+      expect(loggerInfoStub.secondCall.args[0]).to.deep.equal({
+        "event":"review-app-manager",
+        "job": 'stub-job-2',
+        "message": 'Stopped job stub-job-2'
+      });
     });
   });
 });
