@@ -9,11 +9,11 @@ describe('logger', function () {
         const injectedLogger = { error: sinon.stub() };
 
         // when
-        logger.error({ event: 'toto', message: 'titi', stack: 'stack' }, injectedLogger);
+        logger.error({ event: 'toto', message: 'titi', app: 'app' }, injectedLogger);
         // then
         expect(injectedLogger.error.calledOnce).to.be.true;
         expect(injectedLogger.error.firstCall.args[0]).to.equal(
-          '{"event":"toto","message":"titi","stack":"stack","level":"error"}',
+          '{"event":"toto","message":"titi","app":"app","level":"error"}',
         );
       });
     });
@@ -23,12 +23,12 @@ describe('logger', function () {
         const injectedLogger = { error: sinon.stub() };
 
         // when
-        logger.error({ event: 'toto', message: { foo: 'bar' }, stack: 'stack' }, injectedLogger);
+        logger.error({ event: 'toto', message: { foo: 'bar' }, app: 'app' }, injectedLogger);
 
         // then
         expect(injectedLogger.error.calledOnce).to.be.true;
         expect(injectedLogger.error.firstCall.args[0]).to.equal(
-          '{"event":"toto","message":"{\\"foo\\":\\"bar\\"}","stack":"stack","level":"error"}',
+          '{"event":"toto","message":"{\\"foo\\":\\"bar\\"}","app":"app","level":"error"}',
         );
       });
     });
@@ -40,12 +40,12 @@ describe('logger', function () {
         const injectedLogger = { log: sinon.stub() };
 
         // when
-        logger.info({ event: 'toto', message: 'titi', stack: 'stack' }, injectedLogger);
+        logger.info({ event: 'toto', message: 'titi', app: 'app' }, injectedLogger);
 
         // then
         expect(injectedLogger.log.calledOnce).to.be.true;
         expect(injectedLogger.log.firstCall.args[0]).to.equal(
-          '{"event":"toto","message":"titi","stack":"stack","level":"info"}',
+          '{"event":"toto","message":"titi","app":"app","level":"info"}',
         );
       });
     });
@@ -55,12 +55,12 @@ describe('logger', function () {
         const injectedLogger = { log: sinon.stub() };
 
         // when
-        logger.info({ event: 'toto', message: { foo: 'bar' }, stack: 'stack' }, injectedLogger);
+        logger.info({ event: 'toto', message: { foo: 'bar' }, app: 'app' }, injectedLogger);
 
         // then
         expect(injectedLogger.log.calledOnce).to.be.true;
         expect(injectedLogger.log.firstCall.args[0]).to.equal(
-          '{"event":"toto","message":"{\\"foo\\":\\"bar\\"}","stack":"stack","level":"info"}',
+          '{"event":"toto","message":"{\\"foo\\":\\"bar\\"}","app":"app","level":"info"}',
         );
       });
     });
@@ -72,12 +72,12 @@ describe('logger', function () {
         const injectedLogger = { warn: sinon.stub() };
 
         // when
-        logger.warn({ event: 'toto', message: 'titi', stack: 'stack' }, injectedLogger);
+        logger.warn({ event: 'toto', message: 'titi', app: 'app' }, injectedLogger);
 
         // then
         expect(injectedLogger.warn.calledOnce).to.be.true;
         expect(injectedLogger.warn.firstCall.args[0]).to.equal(
-          '{"event":"toto","message":"titi","stack":"stack","level":"warn"}',
+          '{"event":"toto","message":"titi","app":"app","level":"warn"}',
         );
       });
     });
@@ -87,12 +87,12 @@ describe('logger', function () {
         const injectedLogger = { warn: sinon.stub() };
 
         // when
-        logger.warn({ event: 'toto', message: { foo: 'bar' }, stack: 'stack' }, injectedLogger);
+        logger.warn({ event: 'toto', message: { foo: 'bar' }, app: 'app' }, injectedLogger);
 
         // then
         expect(injectedLogger.warn.calledOnce).to.be.true;
         expect(injectedLogger.warn.firstCall.args[0]).to.equal(
-          '{"event":"toto","message":"{\\"foo\\":\\"bar\\"}","stack":"stack","level":"warn"}',
+          '{"event":"toto","message":"{\\"foo\\":\\"bar\\"}","app":"app","level":"warn"}',
         );
       });
     });
