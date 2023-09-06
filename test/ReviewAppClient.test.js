@@ -49,11 +49,13 @@ describe('ReviewAppClient', () => {
       scope.isDone();
       expect(loggerInfoStub.calledTwice).to.be.true;
       expect(loggerInfoStub.firstCall.args[0]).to.deep.equal({
-        "event":"review-app",
+        "event": "review-app-manager",
+        "app": 'my-review-app',
         "message":"Scaling app my-review-app to 0 container(s)…"
       });
       expect(loggerInfoStub.secondCall.args[0]).to.deep.equal({
-        "event":"review-app",
+        "event": "review-app-manager",
+        "app": 'my-review-app',
         "message":"App my-review-app scaled successfully"
       });
     });
@@ -92,11 +94,13 @@ describe('ReviewAppClient', () => {
       scope.isDone();
       expect(loggerInfoStub.calledTwice).to.be.true;
       expect(loggerInfoStub.firstCall.args[0]).to.deep.equal({
-        "event":"review-app",
+        "event": "review-app-manager",
+        "app": 'my-review-app',
         "message":"Scaling app my-review-app to 0 container(s)…"
       });
       expect(loggerInfoStub.secondCall.args[0]).to.deep.equal({
-        "event":"review-app",
+        "event": "review-app-manager",
+        "app": 'my-review-app',
         "message":"App my-review-app scaled successfully"
       });
     });
@@ -119,16 +123,17 @@ describe('ReviewAppClient', () => {
       scope.isDone();
       expect(loggerInfoStub.calledTwice).to.be.true;
       expect(loggerInfoStub.firstCall.args[0]).to.deep.equal({
-        "event":"review-app",
+        "event": "review-app-manager",
+        "app": 'my-review-app',
         "message":"Scaling app my-review-app to 0 container(s)…"
       });
       expect(loggerInfoStub.secondCall.args[0]).to.deep.equal({
-        "event":"review-app",
+        "event": "review-app-manager",
+        "app": 'my-review-app',
         "message":"App my-review-app scaled successfully"
       });
     });
 
-    // TODO not display successfully message
     it('should resolve even when a scaling operation is marked as `error`', async () => {
       // given
       const loggerErrorStub = sinon.stub(logger, 'error');
@@ -153,13 +158,12 @@ describe('ReviewAppClient', () => {
       // then
       expect(loggerErrorStub.calledOnce).to.be.true;
       expect(loggerErrorStub.firstCall.args[0]).to.deep.equal({
-        "event":"review-app",
+        "event": "review-app-manager",
         "message":"container web-1 failed to scale"
       });
       scope.isDone();
     });
 
-    // TODO not display successfully message
     it('should check the scaling operation status up to X times before logging an error', async () => {
       // given
       const loggerErrorStub = sinon.stub(logger, 'error');
@@ -188,7 +192,7 @@ describe('ReviewAppClient', () => {
       scope.isDone();
       expect(loggerErrorStub.calledOnce).to.be.true;
       expect(loggerErrorStub.firstCall.args[0]).to.deep.equal({
-        "event":"review-app",
+        "event": "review-app-manager",
         "message":"Exceeded max attempts"
       });
     });
@@ -209,12 +213,14 @@ describe('ReviewAppClient', () => {
       // then
       expect(loggerInfoStub.calledOnce).to.be.true;
       expect(loggerInfoStub.firstCall.args[0]).to.deep.equal({
-        "event":"review-app",
+        "event": "review-app-manager",
+        "app": 'my-review-app',
         "message":"Scaling app my-review-app to 0 container(s)…"
       });
       expect(loggerWarnStub.calledOnce).to.be.true;
       expect(loggerWarnStub.firstCall.args[0]).to.deep.equal({
-        "event":"review-app",
+        "event": "review-app-manager",
+        "app": 'my-review-app',
         "message":"App my-review-app not scaled due to unchanged formation."
       });
       scope.isDone();
@@ -236,12 +242,13 @@ describe('ReviewAppClient', () => {
       // then
       expect(loggerInfoStub.calledOnce).to.be.true;
       expect(loggerInfoStub.firstCall.args[0]).to.deep.equal({
-        "event":"review-app",
+        "event": "review-app-manager",
+        "app": 'my-review-app',
         "message":"Scaling app my-review-app to 0 container(s)…"
       });
       expect(loggerWarnStub.calledOnce).to.be.true;
-      expect(loggerWarnStub.firstCall.args[0].event).to.equals("review-app");
-      expect(loggerWarnStub.firstCall.args[0].job).to.equals("my-review-app");
+      expect(loggerWarnStub.firstCall.args[0].event).to.equals("review-app-manager");
+      expect(loggerWarnStub.firstCall.args[0].app).to.equals("my-review-app");
       expect(loggerWarnStub.firstCall.args[0].message.status).to.equals(422);
 
       scope.isDone();
@@ -263,12 +270,13 @@ describe('ReviewAppClient', () => {
       // then
       expect(loggerInfoStub.calledOnce).to.be.true;
       expect(loggerInfoStub.firstCall.args[0]).to.deep.equal({
-        "event":"review-app",
+        "event": "review-app-manager",
+        "app": 'my-review-app',
         "message":"Scaling app my-review-app to 0 container(s)…"
       });
       expect(loggerErrorStub.calledOnce).to.be.true;
-      expect(loggerErrorStub.firstCall.args[0].event).to.equals("review-app");
-      expect(loggerErrorStub.firstCall.args[0].job).to.equals("my-review-app");
+      expect(loggerErrorStub.firstCall.args[0].event).to.equals("review-app-manager");
+      expect(loggerErrorStub.firstCall.args[0].app).to.equals("my-review-app");
       expect(loggerErrorStub.firstCall.args[0].message.status).to.equals(404);
       expect(err).to.be.an('error');
       scope.isDone();
