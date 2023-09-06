@@ -78,10 +78,12 @@ describe('JobManager', () => {
       expect(loggerInfoStub.calledTwice).to.be.true;
       expect(loggerInfoStub.firstCall.args[0]).to.deep.equal({
         "event":"review-app-job-manager",
+        "job": 'stub-job-1',
         "message": 'Started job stub-job-1 with cron time "0 0 19 * * 1,2,3,4,5"'
       });
       expect(loggerInfoStub.secondCall.args[0]).to.deep.equal({
         "event":"review-app-job-manager",
+        "job": 'stub-job-2',
         "message": 'Started job stub-job-2 with cron time "0 0 19 * * 1,2,3,4,5"'
       });
     });
@@ -106,11 +108,13 @@ describe('JobManager', () => {
       expect(loggerInfoStub.calledOnce).to.be.true;
       expect(loggerInfoStub.firstCall.args[0]).to.deep.equal({
         "event":"review-app-job-manager",
+        "job": 'stub-job-1',
         "message": 'Started job stub-job-1 with cron time "0 0 19 * * 1,2,3,4,5"',
       });
       expect(loggerErrorStub.calledOnce).to.be.true;
       expect(loggerErrorStub.firstCall.args[0]).to.deep.equal({
         "event":"review-app-job-manager",
+        "job": 'stub-job-2',
         "message": job2Error,
       });
     });
@@ -143,10 +147,12 @@ describe('JobManager', () => {
       expect(loggerInfoStub.calledTwice).to.be.true;
       expect(loggerInfoStub.firstCall.args[0]).to.deep.equal({
         "event":"review-app-job-manager",
+        "job": 'stub-job-1',
         "message": 'Stopped job stub-job-1'
       });
       expect(loggerInfoStub.secondCall.args[0]).to.deep.equal({
         "event":"review-app-job-manager",
+        "job": 'stub-job-2',
         "message": 'Stopped job stub-job-2'
       });
     });
