@@ -1,5 +1,5 @@
 const { expect, sinon } = require('./testing');
-const logger = require('../lib//logger');
+const logger = require('../lib/Logger');
 
 describe('logger', function () {
   describe('error', function () {
@@ -93,6 +93,38 @@ describe('logger', function () {
         expect(injectedLogger.warn.calledOnce).to.be.true;
         expect(injectedLogger.warn.firstCall.args[0]).to.equal(
           '{"event":"toto","message":"{\\"foo\\":\\"bar\\"}","app":"app","level":"warn"}',
+        );
+      });
+    });
+  });
+  describe('ok', function () {
+    describe('when an message is passed', function () {
+      it('should call injectedLogger ok', function () {
+        // given
+        const injectedLogger = { log: sinon.stub() };
+
+        // when
+        logger.ok({ event: 'toto', message: 'titi', app: 'app' }, injectedLogger);
+
+        // then
+        expect(injectedLogger.log.calledOnce).to.be.true;
+        expect(injectedLogger.log.firstCall.args[0]).to.equal(
+          '{"event":"toto","message":"titi","app":"app","level":"ok"}',
+        );
+      });
+    });
+    describe('when an object is passed', function () {
+      it('should call injectedLogger ok with object in message', function () {
+        // given
+        const injectedLogger = { log: sinon.stub() };
+
+        // when
+        logger.ok({ event: 'toto', message: { foo: 'bar' }, app: 'app' }, injectedLogger);
+
+        // then
+        expect(injectedLogger.log.calledOnce).to.be.true;
+        expect(injectedLogger.log.firstCall.args[0]).to.equal(
+          '{"event":"toto","message":"{\\"foo\\":\\"bar\\"}","app":"app","level":"ok"}',
         );
       });
     });

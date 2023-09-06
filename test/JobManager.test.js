@@ -1,7 +1,7 @@
 const { expect, sinon } = require('./testing');
 const Job = require('../lib/Job');
 const JobManager = require('../lib/JobManager');
-const logger = require('../lib/logger');
+const logger = require('../lib/Logger');
 
 
 describe('JobManager', () => {

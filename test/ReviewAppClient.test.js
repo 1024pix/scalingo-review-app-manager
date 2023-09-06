@@ -1,6 +1,6 @@
 const { expect, nock, catchErr, sinon } = require('./testing');
 const ReviewAppClient = require('../lib/ReviewAppClient');
-const logger = require('../lib/logger');
+const logger = require('../lib/Logger');
 
 describe('ReviewAppClient', () => {
 
@@ -28,6 +28,7 @@ describe('ReviewAppClient', () => {
     it('should call Scalingo API through the Scalingo client `Containers` services', async () => {
       // given
       const loggerInfoStub = sinon.stub(logger, 'info');
+      const loggerOkStub = sinon.stub(logger, 'ok');
       const scope = nock(scalingoApiUrl)
         .post(`/v1/apps/${app.name}/scale`)
         .reply(202, {}, {
@@ -47,13 +48,14 @@ describe('ReviewAppClient', () => {
 
       // then
       scope.isDone();
-      expect(loggerInfoStub.calledTwice).to.be.true;
+      expect(loggerInfoStub.calledOnce).to.be.true;
+      expect(loggerOkStub.calledOnce).to.be.true;
       expect(loggerInfoStub.firstCall.args[0]).to.deep.equal({
         "event": "review-app-manager",
         "app": 'my-review-app',
         "message":"Scaling app my-review-app to 0 container(s)…"
       });
-      expect(loggerInfoStub.secondCall.args[0]).to.deep.equal({
+      expect(loggerOkStub.firstCall.args[0]).to.deep.equal({
         "event": "review-app-manager",
         "app": 'my-review-app',
         "message":"App my-review-app scaled successfully"
@@ -63,6 +65,7 @@ describe('ReviewAppClient', () => {
     it('should await for scaling operation to be `done` and poll-check it until it is', async () => {
       // given
       const loggerInfoStub = sinon.stub(logger, 'info');
+      const loggerOkStub = sinon.stub(logger, 'ok');
       const scope = nock(scalingoApiUrl)
         .post(`/v1/apps/${app.name}/scale`)
         .reply(202, {}, {
@@ -92,13 +95,14 @@ describe('ReviewAppClient', () => {
 
       // then
       scope.isDone();
-      expect(loggerInfoStub.calledTwice).to.be.true;
+      expect(loggerInfoStub.calledOnce).to.be.true;
+      expect(loggerOkStub.calledOnce).to.be.true;
       expect(loggerInfoStub.firstCall.args[0]).to.deep.equal({
         "event": "review-app-manager",
         "app": 'my-review-app',
         "message":"Scaling app my-review-app to 0 container(s)…"
       });
-      expect(loggerInfoStub.secondCall.args[0]).to.deep.equal({
+      expect(loggerOkStub.firstCall.args[0]).to.deep.equal({
         "event": "review-app-manager",
         "app": 'my-review-app',
         "message":"App my-review-app scaled successfully"
@@ -108,6 +112,7 @@ describe('ReviewAppClient', () => {
     it('should resolve when the scaling doesn\'t return an operation', async () => {
       // given
       const loggerInfoStub = sinon.stub(logger, 'info');
+      const loggerOkStub = sinon.stub(logger, 'ok');
       const scope = nock(scalingoApiUrl)
         .post(`/v1/apps/${app.name}/scale`)
         .reply(202);
@@ -121,13 +126,14 @@ describe('ReviewAppClient', () => {
 
       // then
       scope.isDone();
-      expect(loggerInfoStub.calledTwice).to.be.true;
+      expect(loggerInfoStub.calledOnce).to.be.true;
+      expect(loggerOkStub.calledOnce).to.be.true;
       expect(loggerInfoStub.firstCall.args[0]).to.deep.equal({
         "event": "review-app-manager",
         "app": 'my-review-app',
         "message":"Scaling app my-review-app to 0 container(s)…"
       });
-      expect(loggerInfoStub.secondCall.args[0]).to.deep.equal({
+      expect(loggerOkStub.firstCall.args[0]).to.deep.equal({
         "event": "review-app-manager",
         "app": 'my-review-app',
         "message":"App my-review-app scaled successfully"
