@@ -406,7 +406,7 @@ describe('ReviewAppClient', () => {
           }
         });
 
-      const reviewAppClient = new ReviewAppClient(scalingoToken, scalingoApiUrl);
+      const reviewAppClient = new ReviewAppClient(scalingoToken, scalingoApiUrl, { reviewAppRestartDelay: 1 });
 
       // when
       await reviewAppClient.restartAllReviewApps();
