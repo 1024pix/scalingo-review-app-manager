@@ -20,7 +20,7 @@
     "greenit"
   ],
   "dependencies": {
-    "cron": "^2.1.0",
+    "cron": "^3.0.0",
     "scalingo": "^0.8.0"
   },
   "devDependencies": {

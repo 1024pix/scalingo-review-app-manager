@@ -19,7 +19,7 @@ describe('Job', () => {
       expect(job.name).to.equal(name);
       expect(job.cron).to.be.an.instanceof(CronJob);
       expect(job.cron.cronTime.source).to.equal(cronTime);
-      expect(job.cron.cronTime.zone).to.be.undefined;
+      expect(job.cron.cronTime.timeZone).to.be.undefined;
     });
 
     it('should accept a valid time zone option', () => {
@@ -27,7 +27,7 @@ describe('Job', () => {
       const job = new Job(name, cronTime, onTick, { timeZone: 'Europe/Paris' });
 
       // then
-      expect(job.cron.cronTime.zone).to.equal('Europe/Paris');
+      expect(job.cron.cronTime.timeZone).to.equal('Europe/Paris');
     });
 
     it('should fail when given an invalid time zone option', () => {
