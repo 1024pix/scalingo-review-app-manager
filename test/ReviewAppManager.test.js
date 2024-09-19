@@ -1,7 +1,7 @@
-const  { expect, sinon } = require('./testing');
-const ReviewAppManager = require('../lib/ReviewAppManager');
-const ReviewAppClient = require('../lib/ReviewAppClient');
-const JobManager = require('../lib/JobManager');
+import { expect, sinon } from './testing.js';
+import { ReviewAppManager} from '../lib/ReviewAppManager.js';
+import { ReviewAppClient} from '../lib/ReviewAppClient.js';
+import { JobManager} from '../lib/JobManager.js';
 
 describe('ReviewAppManager', () => {
 

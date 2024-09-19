@@ -1,8 +1,7 @@
-const { expect, sinon } = require('./testing');
-const Job = require('../lib/Job');
-const JobManager = require('../lib/JobManager');
-const logger = require('../lib/Logger');
-
+import { expect, sinon } from './testing.js';
+import { Job} from '../lib/Job.js';
+import { JobManager} from '../lib/JobManager.js';
+import { logger } from '../lib/Logger.js';
 
 describe('JobManager', () => {
 

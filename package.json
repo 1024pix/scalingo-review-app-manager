@@ -10,6 +10,7 @@
     "url": "https://github.com/1024pix/scalingo-review-app-manager.git"
   },
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "coverage": "nyc npm test",
     "test": "mocha --recursive"

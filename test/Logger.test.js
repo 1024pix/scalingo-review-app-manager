@@ -1,5 +1,5 @@
-const { expect, sinon } = require('./testing');
-const logger = require('../lib/Logger');
+import { expect, sinon } from './testing.js';
+import { logger } from '../lib/Logger.js';
 
 describe('logger', function () {
   describe('error', function () {

@@ -1,6 +1,6 @@
-const { expect, nock, catchErr, sinon } = require('./testing');
-const ReviewAppClient = require('../lib/ReviewAppClient');
-const logger = require('../lib/Logger');
+import { expect, nock, catchErr, sinon } from './testing.js';
+import { ReviewAppClient} from '../lib/ReviewAppClient.js';
+import { logger } from '../lib/Logger.js';
 
 describe('ReviewAppClient', () => {
 

@@ -1,8 +1,8 @@
-const ReviewAppManager = require('./lib/ReviewAppManager');
-const ReviewAppClient = require('./lib/ReviewAppClient');
-const JobManager = require('./lib/JobManager');
+import { ReviewAppManager } from './lib/ReviewAppManager.js';
+import { ReviewAppClient } from './lib/ReviewAppClient.js';
+import { JobManager } from './lib/JobManager.js';
 
-module.exports = {
+export {
   ReviewAppManager,
   ReviewAppClient,
   JobManager
