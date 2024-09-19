@@ -1,6 +1,6 @@
-const { expect, sinon } = require('./testing');
-const CronJob = require('cron').CronJob;
-const Job = require('../lib/Job');
+import { expect, sinon } from './testing.js';
+import { CronJob } from 'cron';
+import { Job } from '../lib/Job.js';
 
 describe('Job', () => {
 

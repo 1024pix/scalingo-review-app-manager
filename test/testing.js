@@ -1,11 +1,14 @@
-const sinon = require('sinon');
+import sinon from 'sinon';
 
-const chai = require('chai');
-chai.use(require('sinon-chai'));
-chai.use(require('chai-as-promised'));
+import chai from 'chai';
+import sinonChai from 'sinon-chai';
+import chaiAsPromised from 'chai-as-promised';
+import nock from 'nock';
+
+chai.use(sinonChai);
+chai.use(chaiAsPromised);
 const expect = chai.expect;
 
-const nock = require('nock');
 nock.disableNetConnect();
 
 function catchErr(promiseFn, ctx) {
@@ -19,7 +22,7 @@ function catchErr(promiseFn, ctx) {
   };
 }
 
-module.exports = {
+export {
   chai,
   expect,
   nock,

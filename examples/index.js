@@ -1,6 +1,7 @@
-require('dotenv').config();
+import * as dotenv from 'dotenv';
+dotenv.config({ path: `${__dirname}/.env` });
 
-const ReviewAppManager = require('../index').ReviewAppManager;
+import { ReviewAppManager } from '../index.js'
 
 async function main() {
 
