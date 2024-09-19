@@ -23,7 +23,7 @@ describe('ReviewAppClient', () => {
   describe('#scale()', () => {
 
     const app = { name: 'my-review-app' };
-    const formation = [{ name: 'web', size: 'S', amount: 0 }];
+    const formation = [{ name: 'web', amount: 0 }];
 
     it('should call Scalingo API through the Scalingo client `Containers` services', async () => {
       // given
