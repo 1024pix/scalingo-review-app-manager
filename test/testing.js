@@ -1,13 +1,12 @@
 import sinon from 'sinon';
 
-import chai from 'chai';
+import { expect, use as chaiUse } from 'chai';
 import sinonChai from 'sinon-chai';
 import chaiAsPromised from 'chai-as-promised';
 import nock from 'nock';
 
-chai.use(sinonChai);
-chai.use(chaiAsPromised);
-const expect = chai.expect;
+chaiUse(sinonChai);
+chaiUse(chaiAsPromised);
 
 nock.disableNetConnect();
 
@@ -23,7 +22,6 @@ function catchErr(promiseFn, ctx) {
 }
 
 export {
-  chai,
   expect,
   nock,
   sinon,
