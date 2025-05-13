@@ -1,3 +1,9 @@
+## [2.1.10](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.1.9...v2.1.10) (2025-05-13)
+
+### :arrow_up: Montée de version
+
+- [#72](https://github.com/1024pix/scalingo-review-app-manager/pull/72) Update dependency sinon to v20 (dossier racine)
+
 ## [2.1.9](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.1.8...v2.1.9) (2025-05-13)
 
 ### :arrow_up: Montée de version
