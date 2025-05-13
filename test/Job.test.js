@@ -19,7 +19,8 @@ describe('Job', () => {
       expect(job.name).to.equal(name);
       expect(job.cron).to.be.an.instanceof(CronJob);
       expect(job.cron.cronTime.source).to.equal(cronTime);
-      expect(job.cron.cronTime.timeZone).to.be.undefined;
+      // The timezone is set to local by default, Europe/Paris for the dev, UTC in CI
+      expect(job.cron.cronTime.timeZone).not.to.be.undefined;
     });
 
     it('should accept a valid time zone option', () => {
