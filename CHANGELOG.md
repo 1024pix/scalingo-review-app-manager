@@ -1,3 +1,9 @@
+## [2.1.6](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.1.5...v2.1.6) (2025-05-13)
+
+### :arrow_up: Montée de version
+
+- [#69](https://github.com/1024pix/scalingo-review-app-manager/pull/69) Update dependency scalingo to ^0.11.0 (dossier racine)
+
 ## [2.1.5](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.1.4...v2.1.5) (2025-05-13)
 
 ### :arrow_up: Montée de version
