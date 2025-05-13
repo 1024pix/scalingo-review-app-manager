@@ -1,3 +1,9 @@
+## [2.1.7](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.1.6...v2.1.7) (2025-05-13)
+
+### :building_construction: Tech
+
+- [#73](https://github.com/1024pix/scalingo-review-app-manager/pull/73) Mettre à jour la version de node en 22
+
 ## [2.1.6](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.1.5...v2.1.6) (2025-05-13)
 
 ### :arrow_up: Montée de version
