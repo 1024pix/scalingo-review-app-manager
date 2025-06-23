@@ -1,3 +1,9 @@
+## [2.1.18](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.1.17...v2.1.18) (2025-06-23)
+
+### :arrow_up: Montée de version
+
+- [#82](https://github.com/1024pix/scalingo-review-app-manager/pull/82) Lock file maintenance (dossier racine)
+
 ## [2.1.17](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.1.16...v2.1.17) (2025-06-16)
 
 ### :arrow_up: Montée de version
