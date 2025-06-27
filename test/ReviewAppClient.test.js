@@ -165,6 +165,7 @@ describe('ReviewAppClient', () => {
       expect(loggerErrorStub.calledOnce).to.be.true;
       expect(loggerErrorStub.firstCall.args[0]).to.deep.equal({
         "event": "review-app-manager",
+        "app": app.name,
         "message":"container web-1 failed to scale"
       });
       scope.isDone();
@@ -199,6 +200,7 @@ describe('ReviewAppClient', () => {
       expect(loggerErrorStub.calledOnce).to.be.true;
       expect(loggerErrorStub.firstCall.args[0]).to.deep.equal({
         "event": "review-app-manager",
+        "app": app.name,
         "message":"Exceeded max attempts"
       });
     });
