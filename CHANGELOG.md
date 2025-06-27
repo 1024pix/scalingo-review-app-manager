@@ -1,3 +1,9 @@
+## [2.1.19](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.1.18...v2.1.19) (2025-06-27)
+
+### :building_construction: Tech
+
+- [#83](https://github.com/1024pix/scalingo-review-app-manager/pull/83) Ajouter le nom de l'application dans certains messages d'erreur
+
 ## [2.1.18](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.1.17...v2.1.18) (2025-06-23)
 
 ### :arrow_up: Montée de version
