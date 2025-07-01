@@ -1,3 +1,9 @@
+## [2.1.20](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.1.19...v2.1.20) (2025-07-01)
+
+### :arrow_up: Montée de version
+
+- [#84](https://github.com/1024pix/scalingo-review-app-manager/pull/84) Update Node.js to v22.17.0
+
 ## [2.1.19](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.1.18...v2.1.19) (2025-06-27)
 
 ### :building_construction: Tech
