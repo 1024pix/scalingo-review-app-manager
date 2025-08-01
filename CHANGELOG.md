@@ -1,3 +1,9 @@
+## [2.1.22](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.1.21...v2.1.22) (2025-08-01)
+
+### :bug: Correction
+
+- [#86](https://github.com/1024pix/scalingo-review-app-manager/pull/86) Éviter les crashs lors d’une erreur inconnue
+
 ## [2.1.21](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.1.20...v2.1.21) (2025-07-22)
 
 ### :arrow_up: Montée de version
