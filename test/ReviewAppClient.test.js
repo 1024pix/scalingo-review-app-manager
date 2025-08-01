@@ -262,7 +262,7 @@ describe('ReviewAppClient', () => {
       scope.isDone();
     });
 
-    it('should throw error', async () => {
+    it('should log and not rethrow error in other cases', async () => {
       // given
       const loggerInfoStub = sinon.stub(logger, 'info');
       const loggerErrorStub = sinon.stub(logger, 'error');
@@ -273,7 +273,7 @@ describe('ReviewAppClient', () => {
       const reviewAppClient = new ReviewAppClient(scalingoToken, scalingoApiUrl);
 
       // when
-      const err = await catchErr(() => reviewAppClient.scale(app, formation), reviewAppClient)();
+      await reviewAppClient.scale(app, formation);
 
       // then
       expect(loggerInfoStub.calledOnce).to.be.true;
@@ -286,7 +286,6 @@ describe('ReviewAppClient', () => {
       expect(loggerErrorStub.firstCall.args[0].event).to.equals("review-app-manager");
       expect(loggerErrorStub.firstCall.args[0].app).to.equals("my-review-app");
       expect(loggerErrorStub.firstCall.args[0].message.status).to.equals(404);
-      expect(err).to.be.an('error');
       scope.isDone();
     });
   });
