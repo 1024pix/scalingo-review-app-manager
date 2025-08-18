@@ -1,6 +1,6 @@
 {
   "name": "@1024pix/scalingo-review-app-manager",
-  "version": "2.1.24",
+  "version": "2.1.25",
   "description": "Utility tool that helps managing Scalingo review apps the economic way",
   "license": "AGPL-3.0",
   "author": "Jérémy Buget",
