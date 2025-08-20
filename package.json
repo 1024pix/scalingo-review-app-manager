@@ -22,7 +22,7 @@
   ],
   "dependencies": {
     "cron": "^4.0.0",
-    "scalingo": "^0.11.0"
+    "scalingo": "^0.12.0"
   },
   "devDependencies": {
     "chai": "^5.0.0",
