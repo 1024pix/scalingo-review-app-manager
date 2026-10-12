@@ -1,6 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "local>1024pix/renovate-config"
+    "local>1024pix/renovate-config:default",
+    "local>1024pix/renovate-config:js-app"
   ]
 }
