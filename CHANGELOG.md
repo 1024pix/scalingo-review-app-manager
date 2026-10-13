@@ -1,3 +1,9 @@
+## [2.1.31](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.1.30...v2.1.31) (2026-10-13)
+
+### :arrow_up: Montée de version
+
+- [#103](https://github.com/1024pix/scalingo-review-app-manager/pull/103) Pin dependencies (dossier racine)
+
 ## [2.1.30](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.1.29...v2.1.30) (2026-10-13)
 
 ### :arrow_up: Montée de version
