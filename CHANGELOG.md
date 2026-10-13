@@ -1,3 +1,9 @@
+## [2.1.29](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.1.28...v2.1.29) (2026-10-13)
+
+### :arrow_up: Montée de version
+
+- [#105](https://github.com/1024pix/scalingo-review-app-manager/pull/105) Update dependency cron to ^4.4.0 (dossier racine)
+
 ## [2.1.28](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.1.27...v2.1.28) (2025-09-08)
 
 ### :arrow_up: Montée de version
