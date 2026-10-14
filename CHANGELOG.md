@@ -1,3 +1,9 @@
+## [2.1.38](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.1.37...v2.1.38) (2026-10-14)
+
+### :arrow_up: Montée de version
+
+- [#110](https://github.com/1024pix/scalingo-review-app-manager/pull/110) Update dependency mocha to v12 (dossier racine)
+
 ## [2.1.37](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.1.36...v2.1.37) (2026-10-14)
 
 ### :arrow_up: Montée de version
