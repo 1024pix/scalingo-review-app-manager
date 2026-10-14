@@ -7,7 +7,7 @@
   "homepage": "https://github.com/1024pix/scalingo-review-app-manager",
   "repository": {
     "type": "git",
-    "url": "https://github.com/1024pix/scalingo-review-app-manager.git"
+    "url": "git+https://github.com/1024pix/scalingo-review-app-manager.git"
   },
   "main": "index.js",
   "type": "module",
