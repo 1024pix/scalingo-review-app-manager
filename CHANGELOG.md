@@ -1,3 +1,9 @@
+## [2.1.36](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.1.35...v2.1.36) (2026-10-14)
+
+### :arrow_up: Montée de version
+
+- [#112](https://github.com/1024pix/scalingo-review-app-manager/pull/112) Update dependency nyc to v18 (dossier racine)
+
 ## [2.1.35](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.1.34...v2.1.35) (2026-10-14)
 
 ### :arrow_up: Montée de version
