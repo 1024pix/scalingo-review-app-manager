@@ -1,3 +1,10 @@
+## [2.1.34](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.1.33...v2.1.34) (2026-10-14)
+
+### :arrow_up: Montée de version
+
+- [#107](https://github.com/1024pix/scalingo-review-app-manager/pull/107) Update JS test packages (dossier racine)
+- [#108](https://github.com/1024pix/scalingo-review-app-manager/pull/108) Update Node.js to v22.23.3
+
 ## [2.1.33](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.1.32...v2.1.33) (2026-10-13)
 
 ### :arrow_up: Montée de version
