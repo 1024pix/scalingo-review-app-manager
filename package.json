@@ -27,8 +27,8 @@
   "devDependencies": {
     "chai": "5.3.3",
     "chai-as-promised": "8.0.2",
-    "mocha": "11.7.2",
-    "nock": "14.0.10",
+    "mocha": "11.8.0",
+    "nock": "14.0.17",
     "nyc": "17.1.0",
     "sinon": "20.0.0",
     "sinon-chai": "4.0.1"
