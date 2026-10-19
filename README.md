@@ -43,13 +43,13 @@ Thanks to `scalingo-review-app-manager`, **we estimate that we save between 3500
 
 **1/** Install the dependency.
 
-```javascript
+```js
 npm install scalingo-review-app-manager
 ```
 
 **2/** Declare a new `ReviewAppManager` and run the CRON-based "Eco Mode".
 
-```javascript
+```js
 const ReviewAppManager = require('../index').ReviewAppManager;
 
 const reviewAppManager = new ReviewAppManager('tk-us-DkjGg...', 'https://api.osc-fr1.scalingo.com');
@@ -65,7 +65,7 @@ By default review apps will be shut down every week day at 7pm and will be resta
 
 You can customize the stop and restart times by passing `stopCronTime` and/or `restartCronTime` parameters (RegExp strings) to the ReviewAppManager constructor.
 
-```javascript
+```js
 const options = {
   stopCronTime: '0 0 22 * * 1-5',
   restartCronTime: '0 0 6 * * 1-5'
