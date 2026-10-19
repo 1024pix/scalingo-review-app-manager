@@ -1,3 +1,5 @@
+# [2.2.0](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.1.41...v2.2.0) (2026-10-19)
+
 ## [2.1.41](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.1.40...v2.1.41) (2026-10-16)
 
 ### :arrow_up: Montée de version
