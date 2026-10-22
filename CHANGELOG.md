@@ -1,3 +1,9 @@
+## [2.2.3](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.2.2...v2.2.3) (2026-10-22)
+
+### :arrow_up: Montée de version
+
+- [#118](https://github.com/1024pix/scalingo-review-app-manager/pull/118) Update dependency node to v24.22.0 (workflows)
+
 ## [2.2.2](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.2.1...v2.2.2) (2026-10-21)
 
 ### :arrow_up: Montée de version
