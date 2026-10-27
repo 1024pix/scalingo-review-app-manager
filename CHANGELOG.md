@@ -1,3 +1,10 @@
+## [2.2.5](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.2.4...v2.2.5) (2026-10-27)
+
+### :arrow_up: Montée de version
+
+- [#120](https://github.com/1024pix/scalingo-review-app-manager/pull/120) Update dependency nock to v15.0.4 (dossier racine)
+- [#122](https://github.com/1024pix/scalingo-review-app-manager/pull/122) Update Node.js to v24.22.1
+
 ## [2.2.4](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.2.3...v2.2.4) (2026-10-26)
 
 ### :arrow_up: Montée de version
