@@ -23,7 +23,7 @@ jobs:
 
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
-          node-version: 24
+          node-version: 26
 
       - uses: 1024pix/pix-actions/release@481ebcb7bd39fcf913121fa594c6722f9c5f7988 # main
         with:
