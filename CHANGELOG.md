@@ -1,3 +1,9 @@
+## [2.2.9](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.2.8...v2.2.9) (2026-11-13)
+
+### :arrow_up: Montée de version
+
+- [#129](https://github.com/1024pix/scalingo-review-app-manager/pull/129) Update dependency nock to v15.0.6 (dossier racine)
+
 ## [2.2.8](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.2.7...v2.2.8) (2026-11-03)
 
 ### :arrow_up: Montée de version
