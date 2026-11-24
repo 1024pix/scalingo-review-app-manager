@@ -1,3 +1,11 @@
+## [2.2.11](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.2.10...v2.2.11) (2026-11-24)
+
+### :arrow_up: Montée de version
+
+- [#132](https://github.com/1024pix/scalingo-review-app-manager/pull/132) Update dependency scalingo to v0.24.2 (root)
+- [#131](https://github.com/1024pix/scalingo-review-app-manager/pull/131) Update github-actions (.github/workflows)
+- [#133](https://github.com/1024pix/scalingo-review-app-manager/pull/133) Update Node.js to v26
+
 ## [2.2.10](https://github.com/1024pix/scalingo-review-app-manager/compare/v2.2.9...v2.2.10) (2026-11-18)
 
 ### :arrow_up: Montée de version
