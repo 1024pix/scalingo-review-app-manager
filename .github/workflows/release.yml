@@ -25,7 +25,7 @@ jobs:
         with:
           node-version: 26
 
-      - uses: 1024pix/pix-actions/release@481ebcb7bd39fcf913121fa594c6722f9c5f7988 # main
+      - uses: 1024pix/pix-actions/release@44ba0bb3203afb06ac7236c7ada6d46df4df22e8 # main
         with:
           npmPublish: true
           updateMajorVersion: true
